@@ -1,5 +1,5 @@
 import './Screen.css'
-import {Textfit} from '"react-textfit"'
+import {Textfit} from 'react-textfit'
 
 import React from 'react'
 
