@@ -18,10 +18,13 @@ function App() {
      <ButtonBox>
        {
          btnValues.flat().map((btn,i)=>{
-               <Button key={i} className={btn === "="?"equals":""} value = {btn} onClick={()=>{
+           return (
+                  <Button key={i} className={btn === "="?"equals":""} value = {btn} onClick={()=>{
          console.log(`${btn} clicked!`);
        }}
        />
+           )
+          
          })
        }
    
