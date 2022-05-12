@@ -62,6 +62,51 @@ function App() {
     })
   }
 
+  // equalsClickHandler function
+  const equalsCLickHandler = () =>{
+    if (calc.sign && calc.num){
+      sign === "+"
+        ? a + b
+        : sign === '-'
+        ? a - b
+        : sign === 'X'
+        ? a * b 
+        : a / b
+
+      setCalc({
+        ...calc,
+        res:
+          calc.num === '0' && calc.sign === '/'
+            ? "Can't didide with 0"
+            : Math(Number(calc.res), Number(calc.num), calc.sign),
+          sign : '',
+          num : 0
+      })
+    }
+  }
+
+  // equalsClickHandler function
+  const invertClickHandler = () => {
+    setCalc({
+      ...calc,
+      num : calc.num ? calc.num * -1 : 0,
+      res : calc.res ? calc.res * -1 : 0,
+      sign : ''
+    })
+  }
+
+  // percentClickHandler
+  const percentClickHandler = () =>{
+    let num = calc.num ? parseFloat(calc.num) : 0
+    len res = calc.res ? parseFloat(calc.res) : 0
+
+    setCalc({
+      ...calc,
+      num : (num /= Math.pow(100,1)),
+      res : (res /= Math.pow(100,1))
+    })
+  }
+
   return (
    <Wrapper>
      <Screen value= {calc.num ? calc.num : calc.res}/>
