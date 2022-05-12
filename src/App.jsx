@@ -19,6 +19,49 @@ function App() {
     num:0,
     res:0,
   })
+
+  // numClickHandler function
+  const numClickHandler = e =>{
+    e.preventDefault()
+    const value = e.target.innerHTML
+
+    if (calc.num.length < 16){
+      setCalc({
+        ...calc,
+        num : calc.num === 0 && value ==="0" 
+          ? "0"
+          :calc.num % 1 === 0 
+          ? Number(calc.num + value)
+          : calc.num + value,
+        res: !calc.sign ? 0 : calc.res
+      })
+    }
+  }
+
+  // numCLickHandler function
+  const commaClickHandler = e =>{
+    e.preventDefault()
+    const value = e.target.innerHTML
+
+    setCalc({
+      ...calc,
+      num : !calc.num.toString().includes(".") ? calc.num + value : calc.num,
+    })
+  }
+
+  // signClickHandler function 
+  const signClickHandler = e =>{
+    e.preventDefault()
+    const value = e.target.innerHTML
+
+    setCalc({
+      ...calc,
+      sign : value,
+      res : !calc.res && calc.num ? calc.num : calc.res,
+      num : 0
+    })
+  }
+
   return (
    <Wrapper>
      <Screen value= {calc.num ? calc.num : calc.res}/>
