@@ -98,7 +98,7 @@ function App() {
   // percentClickHandler
   const percentClickHandler = () =>{
     let num = calc.num ? parseFloat(calc.num) : 0
-    len res = calc.res ? parseFloat(calc.res) : 0
+    let res = calc.res ? parseFloat(calc.res) : 0
 
     setCalc({
       ...calc,
