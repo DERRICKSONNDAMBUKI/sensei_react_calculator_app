@@ -95,7 +95,7 @@ function App() {
     })
   }
 
-  // percentClickHandler
+  // percentClickHandler function
   const percentClickHandler = () =>{
     let num = calc.num ? parseFloat(calc.num) : 0
     let res = calc.res ? parseFloat(calc.res) : 0
@@ -107,6 +107,21 @@ function App() {
     })
   }
 
+  // resetClickHandler function 
+  resetClickHandler = () =>{
+    setCalc({
+      ...calc,
+      sign:'',
+      num: 0,
+      res: 0,
+    })
+  }
+  }
+
+  const toLocaleString = num => String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g,'$1 ')
+  const removeSpaces = num => num.toString().replace(/\s/g,'')
+
+  
   return (
    <Wrapper>
      <Screen value= {calc.num ? calc.num : calc.res}/>
