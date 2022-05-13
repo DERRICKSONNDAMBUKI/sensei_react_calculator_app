@@ -30,6 +30,7 @@ function App() {
     e.preventDefault()
     const value = e.target.innerHTML
 
+    console.log(value);
     if (calc.num.length < 16){
       setCalc({
         ...calc,
@@ -139,6 +140,7 @@ function App() {
          btnValues.flat().map((btn,i)=>{
            return (
                   <Button key={i} className={btn === "="?"equals":""} value = {btn} onClick={
+
                     btn === "C" 
                     ? resetClickHandler 
                     : btn === "+-" 
